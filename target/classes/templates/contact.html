@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${title}">Liên hệ</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<header class="site-header"><div class="container navbar"><a class="brand" th:href="@{/}">LAB 12 / SPRING MVC</a><nav class="nav-links"><a th:href="@{/}">Trang chủ</a><a th:href="@{/students}">Sinh viên</a><a th:href="@{/courses}">Khóa học</a><a class="active" th:href="@{/contact}">Liên hệ</a><a th:href="@{/about}">Giới thiệu</a></nav></div></header>
+<main class="container"><div class="panel"><span class="eyebrow">Bài 6</span><h1>Thông tin liên hệ</h1><p class="lead">Thông tin liên hệ Khoa Công nghệ thông tin và Bộ môn Công nghệ Java.</p><div class="grid"><article class="card"><h3>Khoa Công nghệ thông tin</h3><p>Email: cntt@eaut.edu.vn<br>Điện thoại: 024 6262 7799</p></article><article class="card"><h3>Bộ môn Công nghệ Java</h3><p>Email: java@eaut.edu.vn<br>Phòng: A-204, Tòa A</p></article></div></div></main>
+<footer>Cong nghe Java | Lab 12</footer>
+</body>
+</html>

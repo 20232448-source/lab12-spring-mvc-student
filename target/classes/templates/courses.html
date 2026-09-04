@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${title}">Khóa học</title><link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<header class="site-header"><div class="container navbar"><a class="brand" th:href="@{/}">LAB 12 / SPRING MVC</a><nav class="nav-links"><a th:href="@{/}">Trang chủ</a><a th:href="@{/students}">Sinh viên</a><a class="active" th:href="@{/courses}">Khóa học</a><a th:href="@{/contact}">Liên hệ</a><a th:href="@{/about}">Giới thiệu</a></nav></div></header>
+<main class="container"><span class="eyebrow">Bài 7</span><h1>Các khóa học</h1><p class="lead">Danh sách chủ đề đang được triển khai trong chương trình.</p><div class="grid"><article class="card" th:each="course, stat : ${courses}"><span class="eyebrow" th:text="'0' + ${stat.count}">01</span><h3 th:text="${course}">Spring Boot</h3><p>Thực hành qua dự án web với Java và Thymeleaf.</p></article></div></main><footer>Công nghệ Java | Lab 12</footer>
+</body>
+</html>

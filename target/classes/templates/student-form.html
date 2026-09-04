@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${title}">Thêm sinh viên</title><link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<header class="site-header"><div class="container navbar"><a class="brand" th:href="@{/}">LAB 12 / SPRING MVC</a><nav class="nav-links"><a th:href="@{/}">Trang chủ</a><a class="active" th:href="@{/students}">Sinh viên</a><a th:href="@{/courses}">Khóa học</a><a th:href="@{/contact}">Liên hệ</a><a th:href="@{/about}">Giới thiệu</a></nav></div></header>
+<main class="container"><div class="panel"><span class="eyebrow">Lab 12</span><h1>Thông tin sinh viên</h1><p class="lead">Nhập dữ liệu sinh viên để thêm mới hoặc cập nhật thông tin.</p><div class="validation-summary" th:if="${errorMessage != null}" th:text="${errorMessage}"></div><form th:object="${student}" th:action="@{/students/save}" method="post"><input type="hidden" name="originalStudentCode" th:value="${originalStudentCode}"><label for="studentCode">Mã sinh viên</label><input id="studentCode" th:field="*{studentCode}" required><small class="field-error" th:if="${#fields.hasErrors('studentCode')}" th:errors="*{studentCode}"></small><label for="fullName">Họ và tên</label><input id="fullName" th:field="*{fullName}" required><small class="field-error" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></small><label for="email">Email</label><input id="email" type="email" th:field="*{email}" required><small class="field-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small><label for="className">Lớp</label><input id="className" th:field="*{className}" required><small class="field-error" th:if="${#fields.hasErrors('className')}" th:errors="*{className}"></small><label for="score">Điểm</label><input id="score" type="number" min="0" max="10" step="0.1" th:field="*{score}" required><small class="field-error" th:if="${#fields.hasErrors('score')}" th:errors="*{score}"></small><div class="actions"><button class="button" type="submit">Lưu sinh viên</button><a class="button secondary" th:href="@{/students}">Quay lại</a></div></form></div></main><footer>Công nghệ Java | Lab 12</footer>
+</body>
+</html>

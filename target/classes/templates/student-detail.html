@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chi tiết sinh viên</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<header class="site-header"><div class="container navbar"><a class="brand" th:href="@{/}">LAB 12 / SPRING MVC</a><nav class="nav-links"><a th:href="@{/}">Trang chủ</a><a class="active" th:href="@{/students}">Sinh viên</a><a th:href="@{/courses}">Khóa học</a><a th:href="@{/contact}">Liên hệ</a><a th:href="@{/about}">Giới thiệu</a></nav></div></header>
+<main class="container"><div class="panel"><span class="eyebrow">Bài 6</span><h1>Chi tiết sinh viên</h1><div class="grid"><article class="card"><h3>Mã sinh viên</h3><p th:text="${student.studentCode}">SV001</p></article><article class="card"><h3>Họ và tên</h3><p th:text="${student.fullName}">Nguyen Van An</p></article><article class="card"><h3>Email</h3><p th:text="${student.email}">email@eaut.edu.vn</p></article><article class="card"><h3>Lớp</h3><p th:text="${student.className}">DCCNTT13.10.1</p></article><article class="card"><h3>Điểm</h3><p th:text="${student.score}">8.5</p></article></div><div class="actions"><a class="button" th:href="@{/students/edit/{studentCode}(studentCode=${student.studentCode})}">Sửa sinh viên</a><a class="button secondary" th:href="@{/students}">Quay lại</a></div></div></main><footer>Công nghệ Java | Lab 12</footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Danh sách sinh viên</title>
+    <link rel="stylesheet" th:href="@{/style.css(v=12)}">
+</head>
+<body>
+    <header class="site-header"><div class="container navbar"><a class="brand" th:href="@{/}">LAB 12 / SPRING MVC</a><nav class="nav-links"><a th:href="@{/}">Trang chủ</a><a class="active" th:href="@{/students}">Sinh viên</a><a th:href="@{/courses}">Khóa học</a><a th:href="@{/contact}">Liên hệ</a><a th:href="@{/about}">Giới thiệu</a></nav></div></header>
+        <main class="container"><span class="eyebrow">Lab 12</span><h1>Danh sách sinh viên</h1><p class="lead">Danh sách được quản lý bằng Spring MVC và Thymeleaf.</p><p class="student-count" th:text="'Tổng số: ' + ${studentCount} + ' sinh viên'">Tổng số: 5 sinh viên</p><form class="search-form" th:action="@{/students}" method="get"><input type="search" name="keyword" th:value="${keyword}" placeholder="Tìm theo họ tên"><button class="button" type="submit">Tìm kiếm</button></form><div class="actions"><a class="button secondary" th:href="@{/students/new}">Thêm sinh viên</a></div><div class="empty-state" th:if="${#lists.isEmpty(students)}">Không tìm thấy sinh viên phù hợp.</div><div class="table-wrap" th:unless="${#lists.isEmpty(students)}"><table>
+        <thead>
+            <tr>
+                <th>Mã SV</th>
+                <th>Họ và tên</th>
+                <th>Email</th>
+                <th>Lớp</th>
+                <th>Điểm</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="student : ${students}">
+                <td><a th:href="@{/students/detail/{studentCode}(studentCode=${student.studentCode})}" th:text="${student.studentCode}">SV001</a></td>
+                <td th:text="${student.fullName}">Nguyen Van An</td>
+                <td th:text="${student.email}">email@eaut.edu.vn</td>
+                <td th:text="${student.className}">DCCNTT13.10.1</td>
+                <td><span class="score-badge" th:classappend="${student.score >= 8.0 ? ' score-good' : (student.score >= 5.0 ? ' score-average' : ' score-low')}" th:text="${student.score}">8.5</span></td>
+                <td><a class="button secondary" th:href="@{/students/detail/{studentCode}(studentCode=${student.studentCode})}">Xem</a><a class="button secondary" th:href="@{/students/edit/{studentCode}(studentCode=${student.studentCode})}">Sửa</a><form th:action="@{/students/delete}" method="post" style="display:inline" onsubmit="return confirm('Bạn có chắc muốn xóa sinh viên này không?');"><input type="hidden" name="studentCode" th:value="${student.studentCode}"><button class="button secondary" type="submit">Xóa</button></form></td>
+            </tr>
+        </tbody>
+    </table></div></main><footer>Công nghệ Java | Lab 12</footer>
+</body>
+</html>

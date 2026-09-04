@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${title}">Giới thiệu</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <header class="site-header"><div class="container navbar"><a class="brand" th:href="@{/}">LAB 12 / SPRING MVC</a><nav class="nav-links"><a th:href="@{/}">Trang chủ</a><a th:href="@{/students}">Sinh viên</a><a th:href="@{/courses}">Khóa học</a><a th:href="@{/contact}">Liên hệ</a><a class="active" th:href="@{/about}">Giới thiệu</a></nav></div></header>
+    <main class="container"><div class="panel"><span class="eyebrow">Bài 5</span><h1 th:text="${title}">Giới thiệu</h1><p class="lead" th:text="${description}">Ứng dụng Spring Boot kết hợp Thymeleaf.</p><div class="grid"><article class="card"><h3>Backend</h3><p>Spring Boot xử lý route và truyền dữ liệu qua Model.</p></article><article class="card"><h3>Frontend</h3><p>Thymeleaf render HTML động từ các template.</p></article></div></div></main><footer>Công nghệ Java | Lab 12</footer>
+</body>
+</html>
